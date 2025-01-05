@@ -1,0 +1,103 @@
+.cookie {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    width: 100%;
+    padding: 34px 140px;
+    bottom: 0;
+    left: 0;
+    font-size: 15px;
+    font-weight: 400;
+    line-height: 2;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    z-index: 999;
+    opacity: 0;
+    visibility: hidden;
+    transition: visibility 0s .3s, opacity .3s;
+
+    &.is-active {
+        visibility: visible;
+        opacity: 1;
+        transition: opacity .3s;    
+    }
+
+    &__box {
+        display: inline-flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    &__text {
+        text-align: right;
+
+        br {
+            display: none;
+        }
+
+        a {
+            text-decoration: underline;
+            color: $c1;
+        }
+    }
+
+    &__button {
+        flex-shrink: 0;
+        margin-left: 25px;
+    }
+}
+
+@media $xlarge {
+    .cookie {
+        &__text {
+            br {
+                display: block;
+            }
+        }
+    }
+}
+
+@media $normal {
+    .cookie {
+        font-size: 13px;
+    }
+}
+
+@media $small {
+    .cookie {
+        padding: 20px 85px;
+        font-size: 11px;
+
+        &__button {
+            margin-left: 15px;  
+        }
+    }
+}
+
+@media $xsmall {
+    .cookie {
+        padding: 20px 20px;
+        height: auto;
+        font-size: 10px;
+
+        &__box {
+            display: block;
+            text-align: center;
+        }
+
+        &__text {
+            text-align: center;
+            margin: 0 auto;
+            max-width: 440px;
+
+            br {
+                display: none;
+            }
+        }
+
+        &__button {
+            margin: 15px auto 0;
+        }
+    }
+}

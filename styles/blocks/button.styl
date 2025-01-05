@@ -1,0 +1,309 @@
+@keyframes opacityAnim {
+    0% {
+        opacity: .3;
+    }
+
+    50% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: .3;
+    }
+}
+
+.button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 13px 16px;
+    border: 1px solid alpha($c1, .12);
+    border-radius: 20px 32px 0px 20px;
+    font-size: 16px;
+    line-height: 20px;
+    height: 48px;
+    text-transform: uppercase;
+    color: $c1;
+    letter-spacing: 0.1em;
+    z-index: 1;
+    background: 
+        radial-gradient(42.2% 122.81% at 50% 200.88%, rgba(188, 188, 188, 0.6) 0%, rgba(188, 188, 188, 0) 100%), 
+        radial-gradient(29.62% 64.91% at 50% -40.35%, rgba(199, 199, 199, 0.6) 0%, rgba(197, 197, 197, 0) 100%), 
+        radial-gradient(69.76% 141.23% at 19.55% -54.39%, rgba(255, 255, 255, 0.082) 0%, rgba(255, 255, 255, 0) 93.75%), 
+        radial-gradient(121.19% 538.89% at 116.87% 87.72%, rgba(255, 255, 255, 0.1) 0%, rgba(2, 4, 4, 0.1) 54.69%, rgba(24, 24, 24, 0.0223958) 78.19%, rgba(35, 35, 35, 0) 100%), 
+        linear-gradient(271.55deg, rgba(0, 0, 0, 0) 0.73%, rgba(0, 0, 0, 0.3) 98.46%);
+    background-repeat: no-repeat;
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
+    transition: border-color $duration;
+
+    &::before {
+        content: '';
+        display: block;
+        position: absolute;
+        left: 26px;
+        right: 26px;
+        top: -1px;
+        bottom: -1px;
+        border-width: 1px 0;
+        border-style: solid;
+        border-image: linear-gradient(to right, rgba(255, 255, 255, 0), rgba(255, 255, 255, 1), rgba(255, 255, 255, 0)) 100% 1;
+        z-index: 1;
+    }
+
+    &::after {
+        content: '';
+        display: block;
+        position: absolute;
+        left: 0;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        border-radius: 20px 32px 0px 20px;
+        background: 
+        radial-gradient(60% 125% at 50% 190%, rgba(188, 188, 188, 0.4) 0%, rgba(188, 188, 188, 0) 100%), 
+        radial-gradient(50% 65% at 50% -30%, rgba(199, 199, 199, 0.4) 0%, rgba(197, 197, 197, 0) 100%);
+        z-index: 1;
+        opacity: 0;
+        transition: opacity $duration;
+    }
+
+    > span {
+        position: relative;
+        z-index: 2;
+    }
+
+    &--lg {
+        font-size: 22px;
+        line-height: 30px;
+        padding: 10px 55px;
+        height: 76px;
+        letter-spacing: 0.3em;
+        opacity: 0;
+        transition: opacity .3s, border-color $duration;
+
+        > span {
+            display: inline-flex;
+            align-items: center;
+        }
+
+        .word {
+            position: relative;
+            z-index: 2;
+            display: inline-block;
+            transform: translateY(100%);
+            opacity: 0;
+            transition: opacity $duration, transform $duration;
+            transition-delay: calc((var(--word-total) - var(--word-index) - 1) * 0.1s);
+        }
+
+        .svg-icon {
+            z-index: 2;
+
+            &--arrow,
+            &--icon {
+                position: relative;
+                flex-shrink: 0;
+                margin-right: 26px;
+                display: inline-block;
+                transform: translateY(100%);
+                opacity: 0;
+                transition: opacity $duration, transform $duration;
+                transition-delay: calc(var(--word-total) * 0.1s);
+
+                * {
+                    fill: currentColor;
+                }
+            }
+
+            &--icon {
+                margin-right: 20px;
+            }
+        }
+    }
+
+    &--sm {
+        background: 
+            radial-gradient(69.76% 141.23% at 19.55% -54.39%, rgba(255, 255, 255, 0.082) 0%, rgba(255, 255, 255, 0) 93.75%), 
+            radial-gradient(121.19% 538.89% at 116.87% 87.72%, rgba(255, 255, 255, 0.1) 0%, rgba(2, 4, 4, 0.1) 54.69%, rgba(24, 24, 24, 0.0223958) 78.19%, rgba(35, 35, 35, 0) 100%);
+        box-shadow: inset 0px 0px 10px rgba(255, 255, 255, 0.4), inset 1px -1px 0px 0px rgba(255, 255, 255, 0.4), inset -1px -1px 0px 0px rgba(255, 255, 255, 0.3), inset 0 -1px 0px 0px rgba(255, 255, 255, 0.5);
+        height: 50px;
+        border: none !important;
+
+        &::before {
+            display: none;
+        }
+
+        &::after {
+            background: 
+            radial-gradient(69.76% 141.23% at 19.55% -54.39%, rgba(255, 255, 255, 0.082) 0%, rgba(255, 255, 255, 0) 93.75%), 
+            radial-gradient(121.19% 538.89% at 116.87% 87.72%, rgba(255, 255, 255, 0.1) 0%, rgba(2, 4, 4, 0.1) 54.69%, rgba(24, 24, 24, 0.0223958) 78.19%, rgba(35, 35, 35, 0) 100%);
+        }
+    }
+
+    &--intro {
+        position: relative;
+        width: 314px;
+
+        > span {
+            position: absolute;
+            white-space: nowrap;
+            text-align: center;
+            z-index: 2;
+            opacity: 0;
+            transition: opacity .3s;
+
+            &:nth-of-type(1) {
+                opacity: 1;
+            }
+
+            i {
+                font-style: normal;
+                opacity: 0;
+
+                &:nth-of-type(1) {
+                    animation: opacityAnim 1.8s 0s linear infinite forwards;
+                }
+
+                &:nth-of-type(2) {
+                    animation: opacityAnim 1.8s 0.2s linear infinite forwards;
+                }
+
+                &:nth-of-type(3) {
+                    animation: opacityAnim 1.8s 0.4s linear infinite forwards;
+                }
+
+                &:nth-of-type(4) {
+                    animation: opacityAnim 1.8s 0.6s linear infinite forwards;
+                }
+
+                &:nth-of-type(5) {
+                    animation: opacityAnim 1.8s 0.8s linear infinite forwards;
+                }
+
+                &:nth-of-type(6) {
+                    animation: opacityAnim 1.8s 1s linear infinite forwards;
+                }
+
+                &:nth-of-type(7) {
+                    animation: opacityAnim 1.8s 1.2s linear infinite forwards;
+                }
+
+                &:nth-of-type(8) {
+                    animation: opacityAnim 1.8s 1.4s linear infinite forwards;
+                }
+
+                &:nth-of-type(9) {
+                    animation: opacityAnim 1.8s 1.6s linear infinite forwards;
+                }
+
+                &:nth-of-type(10) {
+                    animation: opacityAnim 1.8s 1.8s linear infinite forwards;
+                }
+            }
+        }
+    }
+
+    &--cookie {
+        min-width: 150px;
+        height: 46px; 
+        font-size: 14px;    
+        line-height: 23px;  
+        letter-spacing: 0.15em;
+    }
+}
+
+@media $desktop {
+    .button {
+        &:hover {
+            border: 1px solid alpha($c1, .2);
+
+            &::after {
+                opacity: 1;
+            }
+        }
+    }
+}
+
+@media $medium {
+    .button {
+        &--lg {
+            font-size: 18px;
+            padding: 10px 40px;
+        }
+    }
+}
+
+@media $small {
+    .button {
+        font-size: 13px;
+        line-height: 20px;
+        padding: 10px 20px;
+        height: 42px;
+        border-radius: 10px 20px 0px 10px;
+
+        &--lg {
+            font-size: 13px;
+            line-height: 20px;
+            padding: 10px 20px;
+            height: 42px;
+            width: 100%;
+            max-width: 336px;
+            letter-spacing: 0.3em;
+            justify-content: center;
+
+            .svg-icon {
+                &--arrow {
+                    width: 68px !important;
+                    height: auto !important;
+                    margin-right: 13px;
+                }
+
+                &--icon {
+                    width: 30px !important;
+                    height: auto !important;
+                    margin-right: 13px;
+                }
+            }
+        }
+
+        &--sm {
+            height: 35px;   
+            padding: 10px 20px; 
+            border-radius: 14px 17px 0px 14px;
+
+            .svg-icon {
+                width: 11px !important; 
+                height: auto !important ;   
+            }
+        }
+
+        &--cookie {
+            height: 40px; 
+            min-width: 130px;     
+        }
+    }
+}
+
+@media $xxsmall {
+    .button {
+        &--lg {
+            padding: 10px;
+
+            .svg-icon {
+                &--arrow {
+                    width: 50px !important;
+                }
+
+                &--icon {
+                    width: 26px !important;
+                }
+            }
+        }
+
+        &--intro {
+            padding: 10px 20px;
+
+        }
+    }
+}

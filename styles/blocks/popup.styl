@@ -1,0 +1,169 @@
+.popup {
+	display: flex;
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	overflow: hidden;
+	overflow-y: auto;
+	color: $c1;
+	padding: 0 35px;
+	background: alpha(#000, .75);
+	z-index: 99;
+	visibility: hidden;
+	opacity: 0;
+	transition: visibility 0s $duration, opacity $duration;
+
+	&__box {
+		margin: auto;
+		width: 100%;
+		height: auto;
+		max-width: 1000px;
+		position: relative;
+	}
+
+	&__close {
+		position: absolute;
+		top: 35px;
+		right: 35px;
+		color: currentColor;
+		line-height: 0;
+		width: 52px;
+        height: 30px;
+        background-color: transparent;
+        border: none;
+        padding: 0;
+        color: $c1;
+        margin-left: auto;
+        z-index: 10;
+
+        span {
+            display: block;
+            position: absolute;
+            width: 52px;
+            height: 1px;
+            top: 50%;
+            left: 50%;
+            margin-left: -26px;
+            background-color: currentColor;
+            transition: margin $duration $duration, transform $duration;
+
+            &:first-child {
+                transform: rotate(10deg);
+            }
+
+            &:last-child {
+                transform: rotate(-10deg);
+            }
+        }
+	}
+
+	&__icon {
+		display: block;
+		position: absolute;
+		left: 100%;
+		top: 0;
+		transform: translateY(-30%);		
+
+		.svg-icon {
+			fill: url(#gradient2) $c1;
+		}
+	}
+
+	&--form {
+		overflow-y: hidden;
+	}
+
+	&--content {
+		position: static;
+		padding: 0;
+		overflow: hidden;
+
+		.popup {
+			&__close {
+				position: fixed;
+				z-index: 100;
+			}
+
+			&__box {
+				position: fixed;
+				top: 0;
+				left: 0;
+				max-width: 100%;
+				background-color: #000;
+				height: 100%;
+				overflow-y: auto;
+				z-index: 98;
+			}
+
+			&__main {
+				padding: 220px 93px 100px;
+			}
+		}
+	}
+
+	&.is-open {
+		visibility: visible;
+		opacity: 1;
+		transition: opacity $duration;
+	}
+}
+
+@media $desktop {
+	.popup {
+		&__close {
+			&:hover {
+				span {
+		            &:first-child {
+		                transform: rotate(35deg);
+		            }
+
+		            &:last-child {
+		                transform: rotate(-35deg);
+		            }
+		        }
+			}
+		}
+	}
+}
+
+@media $medium {
+	.popup {
+		&--content {
+			.popup {
+				&__main {
+					padding: 220px 35px 100px;
+				}
+			}
+		}
+	}
+}
+
+@media $small {
+	.popup {
+		&__close {
+			top: 32px;
+			right: 20px;
+		}
+	}
+}
+
+@media $xsmall {
+	.popup {
+		padding: 0 20px;
+
+		&__close {
+			top: 26px;
+			right: 20px;
+		}
+
+		&--content {
+			.popup {
+				&__main {
+					padding: 120px 20px 64px;
+				}
+			}
+		}
+	}
+}

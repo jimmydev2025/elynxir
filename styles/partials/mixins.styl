@@ -1,0 +1,66 @@
+// font-face
+webfont($family, $file, $weight = normal, $style = normal) {
+	@font-face {
+		font-family: $family;
+		src: url('../fonts/'+$file+'.eot');
+		src: url('../fonts/'+$file+'.eot?#iefix') format('embedded-opentype'),
+			 url('../fonts/'+$file+'.woff') format('woff'),
+			 url('../fonts/'+$file+'.ttf') format('truetype'),
+			 url('../fonts/'+$file+'.svg') format('svg');
+		font-weight: $weight;
+		font-style: $style;
+		font-display: block;
+	}
+}
+
+// placeholder color
+placeholder($c) {
+	&::-webkit-input-placeholder {
+		color: $c;
+	}
+	&::-moz-placeholder {
+		color: $c;
+		opacity: 1;
+	}
+	&:-moz-placeholder {
+		color: $c;
+		opacity: 1;
+	}
+	&:-ms-input-placeholder {
+		color: $c;
+	}
+}
+
+// clearfix
+clearfix() {
+	&:before,
+	&:after {
+		display: block;
+		content: '';
+		height: 0;
+		overflow: hidden;
+		clear: both;
+	}
+}
+
+//scrollbar
+scrollbar() {
+    scrollbar-width: thin;
+    scrollbar-color: $c1 transparent;
+
+    &::-webkit-scrollbar {
+        width: 3px;
+        height: 3px;
+        border-radius: 3px;
+    }
+
+    &::-webkit-scrollbar-track {
+        background: transparent;
+    }
+
+    &::-webkit-scrollbar-thumb {
+        background-color: $c1;
+        border-radius: 3px;
+    }
+}
+

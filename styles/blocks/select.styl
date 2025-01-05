@@ -1,0 +1,111 @@
+.choices {
+	position: relative;
+	z-index: 3;
+	margin: 0;
+	width: 100%;
+	text-align: left;
+	text-transform: uppercase;
+
+	&__inner {
+		font-family: $font;
+	    font-size: 15px;
+    	line-height: 30px;
+	    padding: 9px 33px !important;
+	    min-height: 48px;
+	    border-radius: 30px 0 30px 0 !important;
+	    background-color: transparent;
+    	border: none !important;
+	    color: $c1;
+	    position: relative;
+	    -webkit-transition: border-color $duration, opacity $duration;
+	    -o-transition: border-color $duration, opacity $duration;
+	    transition: border-color $duration, opacity $duration;
+	}
+
+	&__placeholder {
+		opacity: 1;
+	}
+
+	&__input {
+		height: 48px;
+		font-size: 15px;
+	    line-height: 30px;
+	    padding: 9px 33px !important;
+		background-color: transparent !important;
+		border-color: alpha($c1, .2) !important;
+	}
+
+	&__list {
+		&--single {
+			padding: 0;
+		}
+
+		&--dropdown {
+			width: 292px !important;
+		    background-color: rgba(0,0,0,.5);
+		    margin-top: 0;
+		    box-shadow: none;
+		    border-radius: 30px 0 30px 0 !important;
+		    overflow: hidden;
+		    word-break: keep-all;
+            border: 1px solid #7647fe !important;
+
+			.choices {
+				&__list {
+					max-height: 240px;
+					scrollbar();
+				}
+
+				&__item {
+					font-family: $font;
+				    font-size: 15px;
+				    line-height: 30px;
+				    padding: 9px 33px !important;
+				    text-align: left;
+				    color: $c1;
+				    letter-spacing: .1em;
+
+					&.is-highlighted {
+						color: $c1 !important;
+						background-color: alpha($c1, .1) !important;
+					}
+
+					&::after {
+						display: none;
+					}
+				}
+
+				&__placeholder {
+					display: none;
+				}
+			}
+		}
+	}
+
+	&::after {
+		width: 9px !important;
+		height: 9px !important;
+		border-width: 1px !important;
+		border-color: transparent transparent $c1 $c1 !important;
+		right: 22px !important;
+		margin-top: -8px !important;
+		-webkit-transform: rotate(-45deg);
+		-ms-transform: rotate(-45deg);
+		-o-transform: rotate(-45deg);
+		transform: rotate(-45deg);
+		transform-origin: 50% 50%;
+	}
+
+
+	&.is-open {
+		z-index: 9;
+
+		&::after {
+			margin-top: 0 !important;
+			-webkit-transform: rotate(-225deg);
+			-ms-transform: rotate(-225deg);
+			-o-transform: rotate(-225deg);
+			transform: rotate(-225deg);
+		}
+	}
+}

@@ -1,0 +1,208 @@
+* {
+    box-sizing: border-box;
+    cursor: url(../images/cursor0.svg) 6 6, auto;
+    -webkit-animation: cursorDecrease 1s forwards;
+    animation: cursorDecrease 1s forwards;
+}
+
+*:focus {
+    outline: none !important;
+}
+
+canvas {
+    display: block;
+}
+
+html, body {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    overscroll-behavior-y: contain;
+}
+
+body {
+    font-family: $font;
+    font-weight: 400;
+    color: $c1;
+    font-size: 19px;
+    line-height: 1.58;
+    letter-spacing: 0.15em;
+    background-color: #000; 
+    overflow: hidden;
+    overflow-y: auto;
+    text-rendering: optimizeLegibility; 
+    -webkit-font-smoothing: antialiased;
+    -ms-overflow-style: none; 
+
+    &.is-overflow {
+        overflow: hidden;
+    }
+
+    &.is-fake-scroll {
+        &::after {
+            content: '';
+            display: block;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow-y: scroll;
+            z-index: 8;
+        }
+    }
+}
+
+ul,ol {
+    list-style-type: none;
+    padding-left: 0;
+    margin: 0;
+}
+
+h1, h2, h3, h4 {
+    font-family: $fontE;
+    line-height: 1;
+    font-weight: 700;
+    text-transform: uppercase;
+    margin: 0;
+}
+
+h1, h2 {
+    font-size: 80px;
+    line-height: 1.25;
+    letter-spacing: 0.05em;
+}
+
+h3 {
+    font-size: 30px;
+    font-weight: 300;
+    letter-spacing: 0.18em;
+}
+
+h4 {
+    font-size: 19px;
+    font-weight: 500;
+    line-height: 1.95;
+    letter-spacing: 0.15em;
+}
+
+input {
+    font-family: $font;
+    font-weight: 300;
+    font-size: 15px;
+    line-height: 30px;
+    border: none;
+    padding: 10px 33px;
+    width: 100%;
+    background: 
+        radial-gradient(77.92% 176.87% at -16.91% -24.54%, rgba(255, 255, 255, 0.41) 0%, rgba(255, 255, 255, 0) 93.75%), 
+        radial-gradient(109.06% 341.74% at -3.58% 33.25%, rgba(255, 255, 255, 0.1) 0%, rgba(2, 4, 4, 0.1) 16.15%, rgba(24, 24, 24, 0.0223958) 78.19%, rgba(35, 35, 35, 0) 100%);
+    box-shadow: inset 0px 0px 10px rgba(255, 255, 255, 0.4), inset 1px -1px 0px 0px rgba(255, 255, 255, 0.4), inset -1px -1px 0px 0px rgba(255, 255, 255, 0.3), inset 0 -1px 0px 0px rgba(255, 255, 255, 0.5);  
+    border-radius: 20px 32px 0px 20px;
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
+    color: $c1;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    placeholder($c1);
+}
+
+button {
+    font-family: $font;
+    background-color: transparent;
+    padding: 0;
+    border: none;
+    -webkit-animation: cursorIncrease 1s forwards;
+    animation: cursorIncrease 1s forwards;
+    -webkit-appearance: none;
+
+    > * {
+        pointer-events: none;
+    }
+}
+
+img {
+    max-width: 100%;
+}
+
+svg {
+    fill: currentColor;
+}
+
+a {
+    text-decoration: none;
+    -webkit-animation: cursorIncrease 1s forwards;
+    animation: cursorIncrease 1s forwards;
+
+    > * {
+        pointer-events: none;
+    }
+}
+
+@media $normal {
+    h1, h2 {
+        font-size: 80px;
+    }
+}
+
+@media $medium {
+    h1, h2 {
+        font-size: 70px;
+    }
+
+    h3 {
+        font-size: 24px;
+    }
+}
+
+@media $small {
+    body {
+        font-size: 11px;
+    }
+
+    h1, h2 {
+        font-size: 60px;
+        line-height: .93;
+    }
+
+    h3 {
+        font-size: 25px;
+        line-height: 1.2;
+    }
+
+    h4 {
+        font-size: 11px;
+    }
+
+    input {
+        font-size: 11px;
+        line-height: 15px;
+        height: 35px;
+        border-radius: 14px 17px 0px 14px;
+    }
+}
+
+@media $xsmall {
+    body {
+        font-size: 11px;
+    }
+
+    h1, h2 {
+        font-size: 32px;
+        line-height: 1.03;
+    }
+
+    h3 {
+        font-size: 15px;
+    }
+
+    
+}
+
+@media $xxsmall {
+    h1, h2 {
+        font-size: 28px;
+    }
+}

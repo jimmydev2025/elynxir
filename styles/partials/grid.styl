@@ -1,0 +1,24 @@
+//grid
+
+grid-container() {
+	width: 100%;
+	margin: 0 auto;
+	padding: 0 35px;
+}
+
+grid-row() {
+	display: flex;
+	flex-flow: row wrap;
+}
+
+grid-col(x = 12, y = 12){
+	width: (x/y)*100%;
+}
+
+grid-offset-left(x = 0, y = 12){
+	margin-left: (x/y)*100%;
+}
+
+grid-offset-right(x = 0, y = 12){
+	margin-right: (x/y)*100%;
+}
